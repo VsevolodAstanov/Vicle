@@ -27,23 +27,18 @@ const MainNavigator = createMaterialTopTabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Icon name={iconName} size={35} color={tintColor} />;
+        return <Icon name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarComponent: MaterialTopTabBar,
     tabBarOptions: {
       activeTintColor: '#FF8104',
       inactiveTintColor: '#D2D2D2',
-      labelStyle: {
-        fontSize: 11,
-        fontWeight: 'bold',
-        margin: 0
-      },
       showIcon: true,
       showLabel: false,
       iconStyle: {
-          width: 40,
-          height: 40
+          width: 25,
+          height: 25
       },
       pressColor: '#FF8104',
       tabStyle: {

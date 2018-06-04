@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Linking, TouchableOpacity } from "react-native";
-import { List, ListItem, SearchBar } from "react-native-elements";
+import { View, Text, FlatList, ActivityIndicator, Linking } from "react-native";
+import { List, ListItem, Avatar } from "react-native-elements";
+import { Workout } from './Workout'
 
 export class Plan extends Component {
   constructor(props) {
@@ -69,9 +70,7 @@ export class Plan extends Component {
       <View
         style={{
           height: 1,
-          width: "86%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "14%"
+          backgroundColor: "#CED0CE"
         }}
       />
     );
@@ -95,13 +94,11 @@ export class Plan extends Component {
 
   render() {
     return (
-      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
+      <List containerStyle={{ marginTop: 0, borderTopWidth: 0, borderBottomWidth: 0 }}>
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => Linking.openURL('strava://recording')}>
-              <Text>Run Strava</Text>
-            </TouchableOpacity>
+            <Workout item={item} />
           )}
           keyExtractor={item => item.email}
           ItemSeparatorComponent={this.renderSeparator}
