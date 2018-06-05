@@ -5,7 +5,7 @@ import { Plan } from  './components/Plan';
 import { Profile } from  './components/Profile';
 
 
-const MainNavigator = createMaterialTopTabNavigator(
+const AppNavigator = createMaterialTopTabNavigator(
   {
     Plan: { 
       screen: Plan,
@@ -49,10 +49,10 @@ const MainNavigator = createMaterialTopTabNavigator(
   }
 );
 
-export default class Main extends Component {
+export default class App extends Component {
   render() {
     return (
-      <MainNavigator />
+      <AppNavigator />
     )
   }
 }
