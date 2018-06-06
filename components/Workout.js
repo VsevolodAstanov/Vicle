@@ -7,14 +7,15 @@ export class Workout extends Component {
 	render() {
 		return (
 			<ListItem
-              rightIcon={<Avatar
-                onPress={() => Linking.openURL('strava://record')}
-                source={require('../img/strava48.png')}
-              />}
-              title={`${this.props.item.name.first} ${this.props.item.name.last}`}
-              subtitle={this.props.item.email}
-              containerStyle={{ borderBottomWidth: 0 }}
-            />
+				rightIcon={
+					<Avatar
+						onPress={() => Linking.openURL('strava://record')}
+						source={require('../img/strava48.png')}
+					/>}
+				title={`${this.props.item.name.first} ${this.props.item.name.last}`}
+				subtitle={this.props.item.email}
+				containerStyle={{ borderBottomWidth: 0 }}
+			/>
 		);
 	}
 }

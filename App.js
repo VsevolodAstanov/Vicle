@@ -1,46 +1,79 @@
 import React, { Component } from 'react';
 import { createMaterialTopTabNavigator, MaterialTopTabBar } from 'react-navigation-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Plan } from  './components/Plan';
-import { Profile } from  './components/Profile';
+import { Avatar } from "react-native-elements";
+import { Plan } from './components/Plan';
+import { Profile } from './components/Profile';
 
 
 const AppNavigator = createMaterialTopTabNavigator(
-  {
-    Plan: { 
+  { 
+    'Mon': {
       screen: Plan,
     },
-    Profile: {
-      screen: Profile 
-    }
+    'Tue': {
+      screen: Plan,
+    },
+    'Wed': {
+      screen: Plan,
+    },
+    'Thu': {
+      screen: Plan,
+    },
+    'Fri': {
+      screen: Plan,
+    },
+    'Sat': {
+      screen: Plan,
+    },
+    'San': {
+      screen: Plan,
+    },
   }, {
-    initialRouteName: 'Plan',
+    initialRouteName: 'Mon',
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Plan') {
-          iconName = 'calendar-check-o';
-        } else if (routeName === 'Profile') {
-          iconName = 'user-circle-o';
+        let iconTitle;
+        switch(routeName) {
+          case 'Mon':
+            iconTitle = "MN";
+            break;
+          case 'Tue':
+            iconTitle = "TU";
+            break;
+          case 'Wed':
+            iconTitle = "WE";
+            break;
+          case 'Thu':
+            iconTitle = "TH";
+            break;
+          case 'Fri':
+            iconTitle = "FR";
+            break;
+          case 'Sat':
+            iconTitle = "SA";
+            break;
+          case 'San':
+            iconTitle = "SN";
+            break;
         }
 
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Icon name={iconName} size={25} color={tintColor} />;
-      },
+        return <Avatar 
+          rounded
+          containerStyle={{"backgroundColor": tintColor}}
+          title={iconTitle}/>;
+      }
     }),
     tabBarComponent: MaterialTopTabBar,
     tabBarOptions: {
-      activeTintColor: '#FF8104',
+      activeTintColor: '#f65624',
       inactiveTintColor: '#D2D2D2',
       showIcon: true,
       showLabel: false,
       iconStyle: {
-          width: 25,
-          height: 25
+          width: 35,
+          height: 35,
       },
-      pressColor: '#FF8104',
       tabStyle: {
         backgroundColor: '#FFFFFF',
         opacity: 1
@@ -49,7 +82,8 @@ const AppNavigator = createMaterialTopTabNavigator(
   }
 );
 
-export default class App extends Component {
+type Props = {};
+export default class App extends Component<Props> {
   render() {
     return (
       <AppNavigator />
