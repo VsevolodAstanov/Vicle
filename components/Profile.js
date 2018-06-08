@@ -3,11 +3,18 @@ import { View, Text, Linking, TouchableOpacity } from "react-native";
 
 export class Profile extends Component {
 
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
+
 		return (
-			 <TouchableOpacity onPress={() => Linking.openURL('strava://record')}>
-			        <Text>Run Strava</Text>
-			 </TouchableOpacity>
+			<View>
+				<TouchableOpacity onPress={() => Linking.openURL('strava://record')}>
+					<Text>Run Strava</Text>
+				</TouchableOpacity>
+			</View>
 		);
 	}
 }
