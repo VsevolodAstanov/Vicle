@@ -15,25 +15,40 @@ export class Plan extends Component {
 
 	onPageScroll(e) {
 		let position = e.nativeEvent.position;
-		
-		// switch(position) {
-		// 	case 0:
-		// 		this.setState({"subtitle": "Long Ride"});
-		// 	case 1:
-		// 		this.setState({"subtitle": "Intervals"});
-		// 	case 2:
-		// 		this.setState({"subtitle": "Uphill + Skills"});
-		// 	case 3:
-		// 		this.setState({"subtitle": "Relax Day"});
-		// 	case 4:
-		// 		this.setState({"subtitle": "Long Ride"});
-		// 	case 5:
-		// 		this.setState({"subtitle": "Sprints"});
-		// 	case 6:
-		// 		this.setState({"subtitle": "Relax Day"});
-		// }
 
-		//alert(this.state.subtitle)
+		const { self } = this.props.screenProps;
+		const { setSubtitle } = this.props.screenProps;
+
+		switch(position) {
+			case 0:{
+				setSubtitle.call(self,  "Long Ride");
+				break;
+			}
+			case 1:{
+				setSubtitle.call(self,  "Intervals");
+				break;
+			}
+			case 2:{
+				setSubtitle.call(self,  "Uphill + Skills");
+				break;
+			}
+			case 3:{
+				setSubtitle.call(self,  "Relax Day");
+				break;
+			}
+			case 4:{
+				setSubtitle.call(self,  "Long Ride");
+				break;
+			}
+			case 5:{
+				setSubtitle.call(self,  "Sprints");
+				break;
+			}
+			case 6:{
+				setSubtitle.call(self,  "Relax Day");
+				break;
+			}
+		}
 	}
 
 	render() {
@@ -42,7 +57,7 @@ export class Plan extends Component {
 			<ViewPagerAndroid
 				style={{flex: 1}}
 				initialPage={0}
-				onPageSelected={this.onPageScroll.bind(this)}>
+				onPageSelected={(e)=>this.onPageScroll(e)}>
 				<View key="1">
 					<Text>Long Ride</Text>
 				</View>

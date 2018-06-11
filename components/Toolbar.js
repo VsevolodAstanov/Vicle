@@ -4,25 +4,41 @@ import { withNavigation } from 'react-navigation';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 let toolbarActions = [
-	{ title: 'Assignemnt', iconName: 'assignment', show: 'always'},
+	{ title: 'Assignemnt', iconName: 'done', show: 'always'},
+	{ title: 'Calendar', iconName: 'assignment', show: 'always' },
 	{ title: 'Profile', iconName: 'person-outline', show: 'always' },
 ];
 
 export class Toolbar extends Component {
 
+	constructor(props) {
+		super(props);
+	}
+
 	onActionSelected(pos) {
 
 		let { title } = this.props; 
 		let { subtitle } = this.props;
+		const { self } = this.props;
 
-		if(pos === 0){
-			title = "Workout";
-		}
-		else{
-			subtitle = "Profile";
-		}
+		switch(pos) {
+			case 0: {
+				this.props.setTitle.call(self, "Workout");
+				break;
+			}
 
-		alert(title);
+			case 1: {
+				this.props.setTitle.call(self, "Plan");
+				this.props.setSubtitle.call(self, "");
+				break;
+			}
+
+			case 2: {
+				this.props.setTitle.call(self, "Profile");
+				this.props.setSubtitle.call(self, "");
+				break;
+			}
+		}
 	}
 
 	render() {
